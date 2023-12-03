@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
+import PostMemo from "@/views/PostMemo.vue"
+import MapView from "@/views/MapView.vue"
+import MapForm from "@/views/MapForm.vue"
 
 const routes = [
   {
@@ -15,6 +18,21 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/post-memo",
+    name: "postMemo",
+    component: PostMemo,
+  },
+  {
+    path: "/map-view",
+    name: "mapView",
+    component: MapView,
+  },
+  {
+    path: "/map-form",
+    name: "mapForm",
+    component: MapForm,
   },
 ]
 
