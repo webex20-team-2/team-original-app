@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     tuika: function () {
-      this.zandaka += Number(this.nyuryokugaku)
       this.logs.push({
         place: this.mapplace,
         time: this.stayingtime,
