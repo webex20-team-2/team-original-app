@@ -1,6 +1,6 @@
 <template>
   <GoogleMap
-    api-key="AIzaSyC3E-6jBuyvOXY3f7DAPJs7XRsg7rdoTBI"
+    v-bind:api-key="api"
     style="width: 100%; height: 500px"
     :center="center"
     :zoom="15"
@@ -18,6 +18,7 @@ export default defineComponent({
   data() {
     return {
       center: { lat: 40.689247, lng: -74.044502 },
+      api: process.env.VUE_APP_API_KEY,
     }
   },
 })
