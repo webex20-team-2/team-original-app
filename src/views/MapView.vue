@@ -10,10 +10,9 @@
 </template>
 
 <script>
-import { defineComponent } from "vue"
 import { GoogleMap, Marker } from "vue3-google-map"
 
-export default defineComponent({
+export default {
   components: { GoogleMap, Marker },
   data() {
     return {
@@ -21,5 +20,5 @@ export default defineComponent({
       api: process.env.VUE_APP_API_KEY,
     }
   },
-})
+}
 </script>
