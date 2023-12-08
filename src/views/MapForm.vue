@@ -11,7 +11,9 @@
       <option>40分</option>
       <option>50分</option>
       <option>1時間</option>
+      <option>1時間30分</option>
       <option>2時間</option>
+      <option>2時間30分</option>
       <option>3時間</option>
     </select>
     移動方法：
@@ -46,6 +48,9 @@ export default {
   data() {
     return {
       logs: [],
+      mapplace: "",
+      stayingtime: "",
+      movingmethod: "",
     }
   },
   methods: {
