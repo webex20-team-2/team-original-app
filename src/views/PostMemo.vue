@@ -32,18 +32,28 @@
     </div>
     <div class="Form-title">
       <h3 class="Title-title">見出し</h3>
-      <input type="text" class="block-title" />
+      <input type="text" class="block-title" v-model="shorttitle" />
     </div>
     <div class="Form-text">
       <h3 class="Text-title">感想</h3>
-      <textarea type="text" class="block-title"></textarea>
+      <textarea type="text" class="block-title" v-model="kansou"></textarea>
     </div>
     <button class="Form-button" v-on:click="toukou">追加する</button>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      logs: [],
+      shopname: "",
+      membernumber: "",
+      shorttitle: "",
+      kansou: "",
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>

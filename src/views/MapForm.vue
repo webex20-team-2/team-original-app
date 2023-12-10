@@ -15,6 +15,7 @@
       <option>2時間</option>
       <option>2時間30分</option>
       <option>3時間</option>
+      <option>その他</option>
     </select>
     移動方法：
     <select class="textbox" v-model="movingmethod">
@@ -25,6 +26,7 @@
       <option>船</option>
       <option>新幹線</option>
       <option>飛行機</option>
+      <option>その他</option>
     </select>
   </section>
   <div>
