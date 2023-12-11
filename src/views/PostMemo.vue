@@ -11,21 +11,24 @@
       <div class="Form-member">
         <h3 class="Member-title">人数</h3>
         <select class="Category-select" v-model="membernumber">
-          <option hidden="hidden" class="option-word">選択してください</option>
-          <option>1人</option>
-          <option>2人</option>
-          <option>3人</option>
-          <option>4人</option>
-          <option>5人</option>
-          <option>その他</option>
+          <option value hidden="hidden" class="option-word">
+            選択してください
+          </option>
+          <option value="1人">1人</option>
+          <option value="2人">2人</option>
+          <option value="3人">3人</option>
+          <option value="4人">4人</option>
+          <option value="5人">5人</option>
+          <option value="その他">その他</option>
         </select>
       </div>
       <div class="Form-date">
         <h3 class="Date-title">日時</h3>
         <div class="date-flex">
-          <input type="date" class="input-size" /><input
+          <input type="date" class="input-size" v-model="hiniti" /><input
             type="time"
             class="input-size right-time"
+            v-model="zikan"
           />
         </div>
       </div>
@@ -38,8 +41,20 @@
       <h3 class="Text-title">感想</h3>
       <textarea type="text" class="block-title" v-model="kansou"></textarea>
     </div>
-    <button class="Form-button" v-on:click="toukou">追加する</button>
+    <button class="Form-button" v-on:click="touroku">追加する</button>
   </div>
+  <section>
+    <h2>追加記録</h2>
+    <div v-if="logs.length > 0">
+      <div v-for="(log, index) in logs" v-bind:key="index">
+        <div>店名: {{ log.place }}</div>
+        <div>人数: {{ log.member }}</div>
+        <div>日時: {{ log.day }} {{ log.time }}</div>
+        <div>見出し: {{ log.midasi }}</div>
+        <div>感想: {{ log.thoughts }}</div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -49,9 +64,30 @@ export default {
       logs: [],
       shopname: "",
       membernumber: "",
+      hiniti: "",
+      zikan: "",
       shorttitle: "",
       kansou: "",
     }
+  },
+  mounted() {
+    this.logs = JSON.parse(localStorage.getItem("logs")) || []
+  },
+  methods: {
+    touroku: function () {
+      this.logs.push({
+        place: this.shopname,
+        member: this.membernumber,
+        day: this.hiniti,
+        time: this.zikan,
+        midasi: this.shorttitle,
+        thoughts: this.kansou,
+      })
+      this.set()
+    },
+    set() {
+      localStorage.setItem("logs", JSON.stringify(this.logs))
+    },
   },
 }
 </script>
