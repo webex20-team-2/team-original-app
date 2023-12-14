@@ -52,6 +52,9 @@
         <div>日時: {{ log.day }} {{ log.time }}</div>
         <div>見出し: {{ log.midasi }}</div>
         <div>感想: {{ log.thoughts }}</div>
+        <button v-on:click="deleteMemo(index)" class="memo__delete">
+          削除
+        </button>
       </div>
     </div>
   </section>
@@ -74,7 +77,7 @@ export default {
     this.logs = JSON.parse(localStorage.getItem("logs")) || []
   },
   methods: {
-    touroku: function () {
+    touroku() {
       this.logs.push({
         place: this.shopname,
         member: this.membernumber,
@@ -87,6 +90,10 @@ export default {
     },
     set() {
       localStorage.setItem("logs", JSON.stringify(this.logs))
+    },
+    deleteMemo(index) {
+      this.logs.splice(index, 1)
+      localStorage.removeItem("logs")
     },
   },
 }
