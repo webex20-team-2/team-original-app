@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue"
 import PostMemo from "@/views/PostMemo.vue"
 import MapView from "@/views/MapView.vue"
 import MapForm from "@/views/MapForm.vue"
+import MyMemo from "@/views/MyMemo.vue"
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
     path: "/map-form",
     name: "mapForm",
     component: MapForm,
+  },
+  {
+    path: "/my-memo",
+    name: "myMemo",
+    component: MyMemo,
   },
 ]
 
