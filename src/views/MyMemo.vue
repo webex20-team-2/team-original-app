@@ -93,7 +93,7 @@ export default {
     },
     deleteMemo(index) {
       this.logs.splice(index, 1)
-      localStorage.removeItem("logs")
+      this.set()
     },
   },
 }
