@@ -1,16 +1,12 @@
 <template>
-  <div class="PostForm">
+  <section class="PostForm">
     <h1 class="PostForm-title">入力フォーム</h1>
     <div class="Form-detail">
-      <div class="category-parts">
-        <div class="Form-place">
-          <h3 class="Place-title">店名</h3>
-          <input class="shopnamebox" type="text" v-model="shopname" />
-        </div>
-      </div>
-      <div class="Form-member">
+      <div class="Form">
+        <h3 class="Place-title">店名</h3>
+        <input class="namebox" type="text" v-model="shopname" />
         <h3 class="Member-title">人数</h3>
-        <select class="Category-select" v-model="membernumber">
+        <select class="namebox" v-model="membernumber">
           <option value hidden="hidden" class="option-word">
             選択してください
           </option>
@@ -22,31 +18,32 @@
           <option value="その他">その他</option>
         </select>
       </div>
-      <div class="Form-date">
-        <h3 class="Date-title">日時</h3>
-        <div class="date-flex">
-          <input type="date" class="input-size" v-model="hiniti" /><input
-            type="time"
-            class="input-size right-time"
-            v-model="zikan"
-          />
-        </div>
+    </div>
+    <div class="Form">
+      <h3 class="Date-title">日時</h3>
+      <div class="date-flex">
+        <input type="date" class="namebox" v-model="hiniti" /><input
+          type="time"
+          class="namebox"
+          v-model="zikan"
+        />
       </div>
     </div>
-    <div class="Form-title">
-      <h3 class="Title-title">見出し</h3>
-      <input type="text" class="block-title" v-model="shorttitle" />
-    </div>
-    <div class="Form-text">
-      <h3 class="Text-title">感想</h3>
-      <textarea type="text" class="block-title" v-model="kansou"></textarea>
+    <div class="Form-detail">
+      <div class="Form">
+        <h3 class="Title-title">見出し</h3>
+        <input type="text" class="namebox" v-model="shorttitle" />
+
+        <h3 class="Text-title">感想</h3>
+        <textarea type="text" class="namebox" v-model="kansou"></textarea>
+      </div>
     </div>
     <button class="Form-button" v-on:click="touroku">追加する</button>
-  </div>
+  </section>
   <section>
     <h2>追加記録</h2>
     <div v-if="logs.length > 0">
-      <div v-for="(log, index) in logs" v-bind:key="index">
+      <div v-for="(log, index) in logs" v-bind:key="index" class="hyouzi">
         <div>店名: {{ log.place }}</div>
         <div>人数: {{ log.member }}</div>
         <div>日時: {{ log.day }} {{ log.time }}</div>
@@ -99,4 +96,65 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.PostForm {
+  background-color: beige;
+  justify-content: space-around;
+  align-items: center;
+  width: 1000px;
+  height: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: solid;
+}
+
+.Form-detail {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.Form {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.Form-button {
+  margin: 10px /*0 auto*/;
+  width: 15rem;
+  height: 4rem;
+  border-radius: 10px 10px 10px 10px;
+  background-color: mediumaquamarine;
+  font-size: 1.8rem;
+}
+.option-word {
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: white;
+  margin: 1rem;
+}
+.namebox {
+  margin: 0 auto;
+  width: 260px;
+  height: 60px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: #e1e8e0;
+  margin: 1rem;
+}
+</style>
