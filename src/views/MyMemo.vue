@@ -108,7 +108,6 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 1000px;
-  height: 560px;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
