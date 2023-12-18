@@ -41,17 +41,17 @@
     <button class="Form-button" v-on:click="touroku">追加する</button>
   </section>
   <section>
-    <h2>追加記録</h2>
+    <h1 class="PostForm-title">追加記録</h1>
     <div v-if="logs.length > 0">
-      <div v-for="(log, index) in logs" v-bind:key="index" class="hyouzi">
-        <div>店名: {{ log.place }}</div>
-        <div>人数: {{ log.member }}</div>
-        <div>日時: {{ log.day }} {{ log.time }}</div>
-        <div>見出し: {{ log.midasi }}</div>
-        <div>感想: {{ log.thoughts }}</div>
-        <button v-on:click="deleteMemo(index)" class="memo__delete">
-          削除
-        </button>
+      <div v-for="(log, index) in logs" v-bind:key="index" class="PostForm">
+        <div class="wordsize">
+          店名: {{ log.place }} &emsp;人数: {{ log.member }}
+        </div>
+        <div class="wordsize">日時: {{ log.day }} {{ log.time }}</div>
+        <div class="wordsize">見出し: {{ log.midasi }}</div>
+        <div class="kansou">感想</div>
+        <div class="words">{{ log.thoughts }}</div>
+        <button v-on:click="deleteMemo(index)" class="Form-button">削除</button>
       </div>
     </div>
   </section>
@@ -84,6 +84,12 @@ export default {
         thoughts: this.kansou,
       })
       this.set()
+      this.shopname = ""
+      this.membernumber = ""
+      this.hiniti = ""
+      this.zikan = ""
+      this.shorttitle = ""
+      this.kansou = ""
     },
     set() {
       localStorage.setItem("logs", JSON.stringify(this.logs))
@@ -156,5 +162,46 @@ export default {
   border-radius: 3px 3px 3px 3px;
   background-color: #e1e8e0;
   margin: 1rem;
+}
+.wordsize {
+  margin: 0 auto;
+  font-size: 250%;
+  border-bottom: 1px dotted #000;
+}
+.kansou {
+  margin: 0 auto;
+  font-size: 250%;
+  padding: 1rem 2rem;
+  border-bottom: 6px double #000;
+  background: #f4f4f4;
+}
+.words {
+  margin: 0 auto;
+  font-size: 200%;
+}
+.PostForm-title {
+  position: relative;
+  display: inline-block;
+  padding: 0 65px;
+  text-align: center;
+}
+
+.PostForm-title:before,
+.PostForm-title:after {
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 50px;
+  height: 6px;
+  content: "";
+  border-top: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+
+.PostForm-title:before {
+  left: 0;
+}
+
+.PostForm-title:after {
+  right: 0;
 }
 </style>
