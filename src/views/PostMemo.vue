@@ -33,9 +33,19 @@
           <input type="checkbox" v-model="memo.isDone" />
         </div>
         <div v-if="memo.isDone" class="memo__text memo__text--done">
-          {{ index }}:{{ memo.text }}
+          {{ memo.text1 }}
+          {{ memo.text2 }}
+          {{ memo.date }}
+          {{ memo.text3 }}
+          {{ memo.text4 }}
         </div>
-        <div v-else class="memo__text">{{ index }}:{{ memo.text }}</div>
+        <div v-else class="memo__text">
+          <p>店名:{{ memo.text1 }}</p>
+          <p>{{ memo.text2 }}</p>
+          <p>{{ memo.date }}</p>
+          <p>{{ memo.text3 }}</p>
+          <p>{{ memo.text4 }}</p>
+        </div>
       </li>
     </ul>
   </div>
