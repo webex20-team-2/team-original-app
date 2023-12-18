@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <section class="nyuryokuran">
     <h2 class="nyuryoku">入力フォーム</h2>
     場所：
@@ -43,58 +44,13 @@
       </div>
     </div>
   </section>
+=======
+  <div>Map Formだよ</div>
+>>>>>>> origin/main
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      logs: [],
-      mapplace: "",
-      stayingtime: "",
-      movingmethod: "",
-    }
-  },
-  methods: {
-    tuika: function () {
-      this.logs.push({
-        place: this.mapplace,
-        time: this.stayingtime,
-        method: this.movingmethod,
-      })
-    },
-  },
-}
+export default {}
 </script>
 
-<style scoped>
-.nyuryokuran {
-  background-color: beige;
-  justify-content: space-around;
-  align-items: center;
-  width: 1000px;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  border: solid;
-}
-.tuika-button {
-  margin: 20px /*0 auto*/;
-  width: 15rem;
-  height: 4rem;
-  border-radius: 10px 10px 10px 10px;
-  background-color: beige;
-  font-size: 1.8rem;
-}
-.textbox {
-  margin: 0 auto;
-  width: 200px;
-  height: 50px;
-  border-radius: 3px 3px 3px 3px;
-  background-color: white;
-  margin: 1rem;
-}
-</style>
+<style lang="scss" scoped></style>
