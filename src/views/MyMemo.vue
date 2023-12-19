@@ -110,7 +110,7 @@ export default {
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
+  margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 50px;
   border: solid;
