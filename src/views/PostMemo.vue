@@ -40,10 +40,10 @@
           {{ memo.text4 }}
         </div>
         <div v-else class="memo__text">
-          <p>店名:{{ memo.text1 }}</p>
-          <p>{{ memo.text2 }}</p>
-          <p>{{ memo.date }}</p>
-          <p>{{ memo.text3 }}</p>
+          <h1>{{ memo.text1 }}</h1>
+          <h2>{{ memo.text2 }}</h2>
+          <h2>{{ memo.date }}</h2>
+          <h1>{{ memo.text3 }}</h1>
           <p>{{ memo.text4 }}</p>
         </div>
       </li>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, getDocs } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "../firebase.js"
 
@@ -85,7 +85,22 @@ export default {
       })
     },
   },
+  created() {
+    getDocs(collection(db, "tweets")).then((snapshot) => {
+      snapshot.forEach((doc) => {
+        this.tweets.push({
+          id: doc.id,
+          ...doc.data(),
+        })
+      })
+    })
+  },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.memo-list {
+  color: blue;
+  background-color: aqua;
+}
+</style>
