@@ -14,7 +14,9 @@
         <div class="anoy">
           <div class="rai_box">
             <div class="anoy_daimei">おすすめの飲食店を共有しよう！！</div>
-            <div class="anoy_text">らいくん用</div>
+            <div class="anoy_text">
+              自分がおすすめのお店を、メモとして誰にでも共有できるぞ！
+            </div>
             <router-link to="/post-memo" class="navigation__link1"
               >PostMemo</router-link
             >
@@ -32,8 +34,10 @@
             alt="レストラン2"
           />
           <div class="syou_box">
-            <div class="jiko_daimei">しょう用</div>
-            <div class="jiko_text">しょう用</div>
+            <div class="jiko_daimei">手軽に遊べる場所を提供するよ！</div>
+            <div class="jiko_text">
+              場所を入力することで、近くのお店や遊べる場所を検索できるよ！
+            </div>
             <router-link to="/map-view" class="navigation__link1"
               >MapView</router-link
             >
@@ -44,7 +48,7 @@
             <div class="company_daimei">気に入ったお店を忘れないように！</div>
 
             <div class="company_text">
-              自分が気に入ったお店を登録しておける自分専用メモ
+              自分が気に入ったお店を登録しておける自分専用メモ！
             </div>
             <router-link to="/my-memo" class="navigation__link1"
               >MyMemo</router-link
@@ -80,7 +84,7 @@
 
 .rai_box {
   position: absolute;
-  top: 22%;
+  top: 27%;
   left: 30%;
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
